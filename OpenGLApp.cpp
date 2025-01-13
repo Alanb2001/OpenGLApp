@@ -34,9 +34,13 @@ int main()
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+    // Render loop of the window context
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
+
+        glClearColor(0.5f, 0.0f, 1.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
         
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -46,11 +50,13 @@ int main()
     return 0;
 }
 
+// Checks to see if the window context has been resized
 void framebuffer_size_callback(GLFWwindow* window, const int width, const int height)
 {
     glViewport(0, 0, width, height);
 }
 
+// Checks to see if a key has been pressed by the user
 void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
