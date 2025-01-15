@@ -8,8 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa01fcd2-8b4d-466c-be1a-d5a2840f8c68" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Shader.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenGLApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenGLApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenGLApp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGLApp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLApp.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGLApp.vcxproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://1" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dependencies/GLAD/Include/glad.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/glad.c" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -82,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736787377413</updated>
       <workItem from="1736787378741" duration="11525000" />
-      <workItem from="1736955442187" duration="3951000" />
+      <workItem from="1736955442187" duration="11674000" />
     </task>
     <servers />
   </component>
