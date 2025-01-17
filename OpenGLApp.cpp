@@ -163,6 +163,8 @@ int main()
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
+
+    
     // Render loop of the window context
     while (!glfwWindowShouldClose(window))
     {
@@ -175,6 +177,8 @@ int main()
         //loat greenValue = sin(timeValue) / 2.0f + 0.5f;
         //int vertexColourLocation = glGetUniformLocation(shaderProgramOrange, "ourColour");
         ourShader.use();
+        float offset = 0.5f;
+        ourShader.setFloat("xOffset", offset);
         //glUniform4f(vertexColourLocation, 0.0f, greenValue, 0.0f, 1.0f);
         glBindVertexArray(vao);
         glDrawArrays(GL_TRIANGLES, 0, 3);
