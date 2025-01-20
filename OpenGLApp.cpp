@@ -5,64 +5,18 @@
 
 #include "Shader.h"
 #define STB_IMAGE_IMPLEMENTATION
-#include "Shader.h"
 #include "stb_image.h"
-
-//const static char* fragment_shader_source2 =
-//    "#version 330 core\n"
-//    "out vec4 FragColour;\n"
-//    "void main()\n"
-//    "{\n"
-//    "   FragColour = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
-//    "}\n";
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 static void processInput(GLFWwindow* window);
 
-// Single triangle
-//static float vertices[] =
-//    {
-//    // Positions             // Colours
-//         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 
-//        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-//         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f
-//    };
-
-//static float vertices[] =
-//    {
-//    // First triangle
-//        0.0f,  -0.5f, 0.0f,
-//        1.0f,  -0.5f, 0.0f,
-//        0.5f,  0.5f, 0.0f,
-//
-//    //Second triangle
-//       -1.0f, -0.5f, 0.0f,
-//        0.0f, -0.5f, 0.0f,
-//       -0.5f,  0.5f, 0.0f    
-//    };
-
-//tatic float vertices[] =
-//   {
-//   // First triangle
-//       // Positions        // Colours
-//       0.0f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
-//       1.0f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-//       0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f
-//   };
-
-//tatic float vertices2[] =
-//   {
-//   //Second triangle
-//      -1.0f, -0.5f, 0.0f,
-//       0.0f, -0.5f, 0.0f,
-//      -0.5f,  0.5f, 0.0f   
-//   };
+float mixValue = 0.2f;
 
 // A rectangle
 static float vertices[] =
     {
     // Positions         // Colours         // Texture coords
-     0.5f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  1.0f, 1.0f,
+     0.5f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  1.0, 1.0f,
      0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,
     -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
     -0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f,  0.0f, 1.0f
@@ -73,13 +27,6 @@ unsigned int indices[] =
         0, 1, 3,
         1, 2, 3
     };
-
-//loat textCoords[] =
-//   {
-//       0.0f, 0.0f,
-//       1.0f, 0.0f,
-//       0.5f, 1.0f
-//   };
 
 int main()
 {
@@ -110,33 +57,6 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     Shader ourShader("VertShader.txt", "FragShader.txt");
-
-   // const unsigned int fragment_shader2 = glCreateShader(GL_FRAGMENT_SHADER);
-   // glShaderSource(fragment_shader2, 1,  &fragment_shader_source2, nullptr);
-   // glCompileShader(fragment_shader2);
-//
-   // glGetShaderiv(fragment_shader2, GL_COMPILE_STATUS, &success);
-//
-   // if (!success)
-   // {
-   //     char info_log[512];
-   //     glGetShaderInfoLog(fragment_shader2, 512, nullptr, info_log);
-   //     std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << info_log << '\n';
-   // }
-//
-   // const unsigned int shaderProgramYellow = glCreateProgram();
-   // glAttachShader(shaderProgramYellow, vertex_shader);
-   // glAttachShader(shaderProgramYellow, fragment_shader2);
-   // glLinkProgram(shaderProgramYellow);
-//
-   // glGetProgramiv(shaderProgramYellow, GL_LINK_STATUS, &success);
-//
-   // if (!success)
-   // {
-   //     char info_log[512];
-   //     glGetProgramInfoLog(shaderProgramYellow, 512, nullptr, info_log);
-   //     std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << info_log << '\n';
-   // }
     
     unsigned int vao;
     glGenVertexArrays(1, &vao);
@@ -157,24 +77,6 @@ int main()
     glGenBuffers(1, &ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-    
-    //unsigned int vaos[2], vbos[2];
-    //glGenVertexArrays(2, vaos);
-    //glGenBuffers(2, vbos);
-    //
-    //glBindVertexArray(vaos[0]);
-    //glBindBuffer(GL_ARRAY_BUFFER, vbos[0]);
-    //glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    //glEnableVertexAttribArray(0);
-//
-    //glBindVertexArray(vaos[1]);
-    //glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
-    //glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
-    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    //glEnableVertexAttribArray(0);
-
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     unsigned int texture1, texture2;
     glGenTextures(1, &texture1);
@@ -211,7 +113,7 @@ int main()
     data = stbi_load("Textures/awesomeface.png", &width, &height, &nrChannels, 0);
     if (data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
     else
@@ -232,28 +134,17 @@ int main()
 
         glClearColor(0.5f, 0.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-
-        //loat timeValue = glfwGetTime();
-        //loat greenValue = sin(timeValue) / 2.0f + 0.5f;
-        //int vertexColourLocation = glGetUniformLocation(shaderProgramOrange, "ourColour");
-        //float offset = 0.5f;
-        //ourShader.setFloat("xOffset", offset);
-        //glUniform4f(vertexColourLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
-        //glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        ourShader.setFloat("mixValue", mixValue);
         
-        //glUseProgram(shaderProgramYellow);
-        //glBindVertexArray(vaos[1]);
-        //glDrawArrays(GL_TRIANGLES, 0, 3);
         ourShader.use();
         glBindVertexArray(vao);
-        //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        //glBindVertexArray(0);
-
         
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -262,8 +153,6 @@ int main()
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
     glDeleteBuffers(1, &ebo);
-    //glDeleteProgram(shaderProgramOrange);
-    //glDeleteProgram(shaderProgramYellow);
     
     glfwTerminate();
     return 0;
@@ -281,5 +170,22 @@ void processInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
         glfwSetWindowShouldClose(window, GLFW_TRUE);
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+    {
+        mixValue += 0.001f;
+        if (mixValue >= 1.0f)
+        {
+            mixValue = 1.0f;
+        }
+    }
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+    {
+        mixValue -= 0.001f;
+        if (mixValue <= 0.0f)
+        {
+            mixValue = 0.0f;
+        }
     }
 }
