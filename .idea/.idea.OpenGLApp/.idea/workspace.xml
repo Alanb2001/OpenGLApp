@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa01fcd2-8b4d-466c-be1a-d5a2840f8c68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenGLApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenGLApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenGLApp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGLApp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VertShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/VertShader.txt" afterDir="false" />
-    </list>
+    <list default="true" id="fa01fcd2-8b4d-466c-be1a-d5a2840f8c68" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +84,7 @@
       <workItem from="1737150656825" duration="1504000" />
       <workItem from="1737391346998" duration="4848000" />
       <workItem from="1737565013329" duration="9895000" />
+      <workItem from="1737729952231" duration="641000" />
     </task>
     <servers />
   </component>
